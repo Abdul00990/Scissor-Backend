@@ -8,27 +8,37 @@ Project Structure
 
 src/
 
-├── controllers/          # Contains all the controllers for handling requests
+  controllers/
+  
+  middleware/
+  
+  models/
+  
+  routes/
+  
+  services/
+  
+  types/
+  
+  app.ts
+  
+  server.ts
+  
+  swaggerConfig.ts
+  
+  logger.ts
+  
+  ...
+tests/
 
-├── middlewares/          # Middleware functions for authentication, role-based access, etc.
+  ...
+.env
 
-├── models/               # Mongoose models for MongoDB collections
+tsconfig.json
 
-├── routes/               # API route definitions
+package.json
 
-├── services/             # Business logic encapsulated in service classes
-
-├── types/                # TypeScript type definitions
-
-├── utils/                # Utility functions
-
-├── logger.ts             # Logging configuration
-
-├── swaggerConfig.ts      # Swagger documentation setup
-
-└── app.ts                # Entry point of the application
-
-Explanation of Key Folders and Files
+Explanation of Key Folders
 
 - controllers/: Houses the logic for handling requests and returning responses. Each controller is responsible for a specific set of endpoints, like authentication, URL management, and analytics.
 
@@ -47,6 +57,86 @@ Explanation of Key Folders and Files
 - swaggerConfig.ts: Configuration file for generating Swagger API documentation.
 
 - app.ts: The main application file, where routes, middleware, and services are initialized.
+
+
+
+File Explanations
+
+- 'src/app.ts'
+
+  The 'app.ts' file is the entry point for the Express application. It initializes the Express app, configures middleware, sets up routes, and integrates Swagger for API documentation.
+
+- src/server.ts
+
+  The 'server.ts' file is responsible for starting the Express server and connecting to the MongoDB database.
+
+- 'src/swaggerConfig.ts'
+  
+  The 'swaggerConfig.ts' file configures Swagger for API documentation. It defines the API specification and sets the path for route files.
+
+- src/routes
+
+  The routes directory contains all the API route files.
+
+- 'src/routes/authRoutes.ts'
+
+  Handles user authentication, including registration and login. 
+
+- 'src/routes/urlRoutes.ts'
+
+  Handles URL shortening, redirection, and analytics.
+
+- 'src/routes/userRoutes.ts'
+
+  Handles user-specific operations, such as retrieving URL history.
+
+- src/middleware
+
+  Middleware functions for request processing.
+
+- 'src/middleware/authMiddleware.ts'
+  
+  Authenticates users by verifying JWT tokens.
+
+- src/controllers
+  
+  Controller files contain the logic for handling requests and returning responses.
+
+- 'src/controllers/authController.ts'
+
+  Handles user registration and login.
+
+- 'src/controllers/urlController.ts'
+  
+  Handles URL shortening and redirection.
+
+- 'src/controllers/userController.ts'
+
+  Handles user-specific operations.
+
+- src/models
+  
+  Mongoose models representing the MongoDB database schemas.
+
+- 'src/models/Url.ts'
+  
+  Represents a shortened URL.
+
+- 'src/models/User.ts'
+
+  Represents a user in the system.
+
+- src/services
+
+  Contains the business logic and utility functions.
+
+- 'src/services/urlShorteningService.ts'
+
+  Handles the logic for shortening URLs and generating short codes.
+
+- src/logger.ts
+  
+  Custom logger setup using winston.
 
 
 API Endpoints
@@ -118,3 +208,4 @@ Logging
 Logging is handled using the winston library. Logs are stored in both the console and log files, providing valuable information during development and in production.
 
 - logger.ts: Configures the logging system, specifying log levels and formats.
+
